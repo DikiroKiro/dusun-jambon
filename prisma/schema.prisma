@@ -1,0 +1,112 @@
+// Prisma schema — Web Profil Desa Jambon
+// Database: PostgreSQL (Supabase). Runtime pakai DATABASE_URL (pooler),
+// migrasi/seed pakai DIRECT_URL.
+// Catatan: pakai String (bukan enum) untuk status/kategori supaya fleksibel.
+// Validasi nilai via zod di lib/validators.ts.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model SiteConfig { // single row (id=1)
+  id           Int      @id @default(1)
+  namaDesa     String
+  kecamatan    String
+  kabupaten    String
+  provinsi     String
+  alamatKantor String
+  noWhatsApp   String // format 62xxx
+  emailDesa    String?
+  jamLayanan   String?
+  mapsEmbedUrl String? // embed Google Maps kantor desa
+  visi         String
+  misi         String // dipisah newline (\n), tampil sebagai daftar
+  sejarah      String?
+  heroFoto     String? // storage path relatif (public/uploads/...)
+  updatedAt    DateTime @updatedAt
+}
+
+model Official {
+  id      String  @id @default(cuid())
+  nama    String
+  jabatan String
+  foto    String? // storage path
+  urutan  Int     @default(0)
+  aktif   Boolean @default(true)
+}
+
+model Dusun {
+  id        String  @id @default(cuid())
+  nama      String
+  deskripsi String?
+  mapsQuery String? // teks utk link Google Maps cari dusun
+  urutan    Int     @default(0)
+}
+
+model Statistik {
+  id     String @id @default(cuid())
+  label  String // "Penduduk", "KK", ...
+  nilai  String // string biar fleksibel: "421", "1.024"
+  tahun  String?
+  urutan Int    @default(0)
+}
+
+model Berita {
+  id          String   @id @default(cuid())
+  judul       String
+  slug        String   @unique
+  ringkasan   String?
+  konten      String
+  coverFoto   String? // storage path
+  penulis     String?
+  status      String   @default("DRAFT") // DRAFT | PUBLISHED
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Umkm {
+  id         String   @id @default(cuid())
+  nama       String
+  pemilik    String?
+  deskripsi  String
+  noWhatsApp String? // format 62xxx
+  alamat     String?
+  foto       String? // storage path utama
+  aktif      Boolean  @default(true)
+  createdAt  DateTime @default(now())
+}
+
+model Album {
+  id        String  @id @default(cuid())
+  judul     String
+  slug      String  @unique
+  deskripsi String?
+  tanggal   DateTime?
+  createdAt DateTime @default(now())
+  photos    Photo[]
+}
+
+model Photo {
+  id      String @id @default(cuid())
+  albumId String
+  album   Album  @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  path    String // storage path
+  caption String?
+  urutan  Int    @default(0)
+}
+
+model KbEntry { // KB manual: jenis surat, program, jadwal posyandu
+  id        String   @id @default(cuid())
+  kategori  String // SURAT | PROGRAM | POSYANDU | KONTAK | UMUM
+  judul     String
+  isi       String
+  aktif     Boolean  @default(true)
+  updatedAt DateTime @updatedAt
+}
