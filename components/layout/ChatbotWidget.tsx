@@ -73,7 +73,7 @@ export function ChatbotWidget() {
         type="button"
         aria-label={open ? "Tutup chat" : "Buka chat asisten"}
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-hijau-800 text-2xl text-krem-50 shadow-lg shadow-hijau-950/30 transition-transform hover:scale-105"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-hijau-800 text-2xl text-krem-50 shadow-lg shadow-hijau-950/30 transition-all hover:scale-105 active:scale-95"
       >
         {open ? (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -126,7 +126,7 @@ export function ChatbotWidget() {
                   key={s}
                   type="button"
                   onClick={() => kirim(s)}
-                  className="rounded-full border border-hijau-200 bg-hijau-50 px-2.5 py-1 text-xs text-hijau-800 hover:bg-hijau-100"
+                  className="rounded-full border border-hijau-200 bg-hijau-50 px-2.5 py-1 text-xs text-hijau-800 transition-colors hover:bg-hijau-100 active:scale-[0.97]"
                 >
                   {s}
                 </button>
@@ -148,7 +148,7 @@ export function ChatbotWidget() {
               <button
                 type="submit"
                 disabled={!input.trim() || mengetik}
-                className="rounded-full bg-hijau-800 px-4 py-2 text-sm font-medium text-krem-50 disabled:opacity-40"
+                className="rounded-full bg-hijau-800 px-4 py-2 text-sm font-medium text-krem-50 transition-all disabled:opacity-40 active:scale-[0.97]"
               >
                 Kirim
               </button>

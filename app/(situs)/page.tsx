@@ -9,7 +9,7 @@ import { UmkmCard } from "@/components/umkm/UmkmCard";
 import { AlbumCard } from "@/components/galeri/AlbumCard";
 import { Reveal } from "@/components/ui/Reveal";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Beranda",
@@ -70,13 +70,13 @@ export default async function HomePage() {
           <div className="animate-fade-in-up mt-8 flex flex-wrap justify-center gap-3 [animation-delay:500ms]">
             <Link
               href="/profil"
-              className="rounded-full bg-emas-500 px-6 py-3 text-sm font-semibold text-hijau-950 shadow-lg transition-colors hover:bg-emas-400"
+              className="rounded-full bg-emas-500 px-6 py-3 text-sm font-semibold text-hijau-950 shadow-lg transition-all hover:bg-emas-400 active:scale-[0.97] active:brightness-90"
             >
               Kenali Desa Kami
             </Link>
             <Link
               href="/layanan"
-              className="rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-krem-50 ring-1 ring-white/40 backdrop-blur transition-colors hover:bg-white/20"
+              className="rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-krem-50 ring-1 ring-white/40 backdrop-blur transition-all hover:bg-white/20 active:scale-[0.97] active:bg-white/30"
             >
               Lihat Layanan
             </Link>
@@ -112,7 +112,7 @@ export default async function HomePage() {
                 </p>
                 <Link
                   href="/profil"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-hijau-800 px-6 py-3 text-sm font-semibold text-krem-50 transition-colors hover:bg-hijau-900"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-hijau-800 px-6 py-3 text-sm font-semibold text-krem-50 transition-all hover:bg-hijau-900 active:scale-[0.97] active:brightness-90"
                 >
                   Selengkapnya
                   <span aria-hidden>→</span>
@@ -173,7 +173,7 @@ export default async function HomePage() {
             <div className="mt-8 text-center">
               <Link
                 href="/berita"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-hijau-800 px-6 py-2.5 text-sm font-semibold text-hijau-800 transition-colors hover:bg-hijau-800 hover:text-krem-50"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-hijau-800 px-6 py-2.5 text-sm font-semibold text-hijau-800 transition-all hover:bg-hijau-800 hover:text-krem-50 active:scale-[0.97]"
               >
                 Semua Berita
               </Link>
@@ -207,7 +207,7 @@ export default async function HomePage() {
           <div className="mt-8 text-center">
             <Link
               href="/umkm"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-hijau-800 px-6 py-2.5 text-sm font-semibold text-hijau-800 transition-colors hover:bg-hijau-800 hover:text-krem-50"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-hijau-800 px-6 py-2.5 text-sm font-semibold text-hijau-800 transition-all hover:bg-hijau-800 hover:text-krem-50 active:scale-[0.97]"
             >
               Jelajahi UMKM
             </Link>
@@ -257,14 +257,14 @@ export default async function HomePage() {
                 href={linkWhatsApp(site.noWhatsApp, "Halo, saya ingin bertanya tentang layanan desa.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-emas-500 px-6 py-3 text-sm font-semibold text-hijau-950 transition-colors hover:bg-emas-400"
+                className="rounded-full bg-emas-500 px-6 py-3 text-sm font-semibold text-hijau-950 transition-all hover:bg-emas-400 active:scale-[0.97] active:brightness-90"
               >
                 Chat WhatsApp
               </a>
             )}
             <Link
               href="/kontak"
-              className="rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-krem-50 ring-1 ring-white/40 transition-colors hover:bg-white/20"
+              className="rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-krem-50 ring-1 ring-white/40 transition-all hover:bg-white/20 active:scale-[0.97] active:bg-white/30"
             >
               Halaman Kontak
             </Link>

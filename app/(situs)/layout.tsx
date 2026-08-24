@@ -2,6 +2,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ChatbotWidget } from "@/components/layout/ChatbotWidget";
 
+export const dynamic = "force-dynamic";
+
 export default function SitusLayout({
   children,
 }: {

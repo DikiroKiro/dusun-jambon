@@ -47,10 +47,10 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors",
+                  "rounded-full px-3.5 py-1.5 text-sm font-medium transition-all",
                   aktif
                     ? "bg-hijau-800 text-krem-50"
-                    : "text-stone-600 hover:bg-hijau-100 hover:text-hijau-900"
+                    : "text-stone-600 hover:bg-hijau-100 hover:text-hijau-900 active:scale-[0.97]"
                 )}
               >
                 {item.label}
@@ -88,10 +88,10 @@ export function Navbar() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "block rounded-lg px-3 py-2.5 text-sm font-medium",
+                  "block rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                   aktif
                     ? "bg-hijau-800 text-krem-50"
-                    : "text-stone-700 hover:bg-hijau-100"
+                    : "text-stone-700 hover:bg-hijau-100 active:scale-[0.97]"
                 )}
               >
                 {item.label}

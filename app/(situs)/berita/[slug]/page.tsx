@@ -6,7 +6,7 @@ import { formatTanggal, uploadUrl } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
 import { Badge } from "@/components/ui/Badge";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 type Props = {
   params: Promise<{ slug: string }>;

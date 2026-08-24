@@ -4,7 +4,7 @@ import { linkWhatsApp } from "@/lib/utils";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Kontak",
@@ -70,7 +70,7 @@ export default async function KontakPage() {
                 href={linkWhatsApp(site.noWhatsApp, "Halo, saya ingin bertanya tentang layanan desa.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-hijau-700 px-5 py-2.5 text-sm font-semibold text-krem-50 transition-colors hover:bg-hijau-800"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-hijau-700 px-5 py-2.5 text-sm font-semibold text-krem-50 transition-all hover:bg-hijau-800 active:scale-[0.97] active:brightness-90"
               >
                 Chat WhatsApp
               </a>

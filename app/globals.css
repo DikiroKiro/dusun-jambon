@@ -60,6 +60,16 @@
   h4 {
     @apply font-serif;
   }
+
+  button:not(:disabled) {
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+
+  button:not(:disabled):active {
+    transform: scale(0.97);
+    filter: brightness(0.92);
+  }
 }
 
 ::selection {
