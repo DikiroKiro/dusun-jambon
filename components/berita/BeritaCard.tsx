@@ -14,7 +14,7 @@ export function BeritaCard({ judul, slug, ringkasan, coverFoto, publishedAt }: P
   return (
     <Link
       href={`/berita/${slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-hijau-100 transition-shadow hover:shadow-md"
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-hijau-100 transition-all hover:shadow-md active:scale-[0.97]"
     >
       <div className="relative aspect-[16/9] overflow-hidden bg-hijau-100">
         {coverFoto ? (

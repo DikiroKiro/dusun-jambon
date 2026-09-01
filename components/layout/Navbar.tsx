@@ -50,7 +50,7 @@ export function Navbar() {
                   "rounded-full px-3.5 py-1.5 text-sm font-medium transition-all",
                   aktif
                     ? "bg-hijau-800 text-krem-50"
-                    : "text-stone-600 hover:bg-hijau-100 hover:text-hijau-900 active:scale-[0.97]"
+                    : "text-stone-600 hover:bg-hijau-100 hover:text-hijau-900 active:scale-[0.97] active:bg-white/10"
                 )}
               >
                 {item.label}
@@ -91,7 +91,7 @@ export function Navbar() {
                   "block rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                   aktif
                     ? "bg-hijau-800 text-krem-50"
-                    : "text-stone-700 hover:bg-hijau-100 active:scale-[0.97]"
+                    : "text-stone-700 hover:bg-hijau-100 active:scale-[0.97] active:bg-white/10"
                 )}
               >
                 {item.label}
